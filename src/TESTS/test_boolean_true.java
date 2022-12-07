@@ -1,6 +1,6 @@
 package TESTS;
 
-public class Test_1 {
+public class test_boolean_true {
     public static void main(String[] args) {
         int a = 5;
         int b = 6;
