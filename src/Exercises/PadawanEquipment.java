@@ -15,10 +15,19 @@ public class PadawanEquipment {
 
 
 
-
         double sumLight = Math.ceil(studentsCount * 1.1) * lightPrice;
         double sumRobes = studentsCount * robePrice;
         double sumBelts = (studentsCount - studentsCount / 6) * beltPrice;
+
+        double total = sumLight + sumRobes + sumBelts;
+
+        if (money >= total){
+            System.out.printf("The money is enough - it would cost %.2flv.", total);
+        }else {
+            //George Lucas will need {neededMoney}lv more.
+            System.out.printf("George Lucas will need %.2flv more.", total - money);
+        }
+
 
 
     }
