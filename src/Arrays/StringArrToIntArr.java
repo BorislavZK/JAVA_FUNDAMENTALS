@@ -1,12 +1,12 @@
 package Arrays;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Scanner;
 
 public class StringArrToIntArr {
     public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
 
         /*
         https://www.techiedelight.com/convert-string-array-to-int-array-java/
@@ -21,6 +21,14 @@ public class StringArrToIntArr {
         accumulate the stream elements into an int primitive array.
 
 
+
+           int[] arr = Arrays.stream(scan.nextLine().split(" "))
+                .mapToInt(Integer::parseInt).toArray();
+
+
+
+
+
         String[] strings = {"1", "2", "3", "4", "5"};
 
         int[] values = Arrays.stream(strings)
@@ -30,6 +38,9 @@ public class StringArrToIntArr {
         System.out.println(Arrays.toString(values));
 
          */
+
+        int[] arr = Arrays.stream(scan.nextLine().split(" "))
+                .mapToInt(Integer::parseInt).toArray();
 
 
 
