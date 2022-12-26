@@ -16,9 +16,7 @@ public class CommonElements {
                 if (first.equals(second)) {
                     System.out.print(second + " ");
                 }
-
             }
-
         }
     }
 }
