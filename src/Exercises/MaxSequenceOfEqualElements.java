@@ -25,12 +25,12 @@ public class MaxSequenceOfEqualElements {
                 }
             } else
                 counter = 1;
-        }
+            }
 
-        for (int i = 0; i < maxCount; i++) {
-            System.out.print(digit + " ");
+            for (int i = 0; i < maxCount; i++) {
+                System.out.print(digit + " ");
+            }
         }
     }
-}
 
 
