@@ -15,7 +15,7 @@ public class LadyBugs {
         int[] field = new int[fieldSize];
 
         for (int bugPositions : bugPosition) {
-            int index = bugPosition[1];
+            int index = bugPosition[0];
             if (index >= 0 && index < field.length) {
                 field[index] = 1;
             }
