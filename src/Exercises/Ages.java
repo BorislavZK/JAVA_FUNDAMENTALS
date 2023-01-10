@@ -11,13 +11,6 @@ public class Ages {
         int age = Integer.parseInt(scan.nextLine());
         String type = "";
 
-        //•	0-2 – baby;
-        //•	3-13 – child;
-        //•	14-19 – teenager;
-        //•	20-65 – adult;
-        //•	>=66 – elder;
-        //•	All the values are inclusive.
-
 
         if (age >= 0 && age <= 2) {
             type = "baby";
