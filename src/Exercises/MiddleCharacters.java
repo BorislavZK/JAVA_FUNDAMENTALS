@@ -21,7 +21,7 @@ public class MiddleCharacters {
         } else {
             int indexFirst = text.length() / 2;
             int indexSecond = text.length() / 2 - 1;
-            System.out.println("" + text.charAt(indexFirst) + text.charAt(indexSecond));
+            System.out.println("" + text.charAt(indexSecond) + text.charAt(indexFirst));
 
         }
     }
