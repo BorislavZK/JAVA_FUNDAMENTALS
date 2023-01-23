@@ -1,34 +1,46 @@
 package Exercises;
 
+import java.text.DecimalFormat;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class PalindromeIntegers {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        String input = scan.nextLine();
+        List<Double> numbersList = Arrays.stream(scan.nextLine().split(" "))
+                .map(Double::parseDouble).collect(Collectors.toList());
 
-        while (!input.equals("END")){
 
-            int number = Integer.parseInt(input);
+        for (int i = 0; i < numbersList.size() - 1 ; i++) {
+            double firstElement = numbersList.get(i);
+            double secondElement = numbersList.get(i+1);
 
-            System.out.println(palindromeNumberChecker(number));
-
-            input = scan.nextLine();
+            if (firstElement == secondElement){
+                numbersList.set(i, numbersList.get(i) + numbersList.get(i +1));
+                numbersList.remove(i+1);
+                i = -1;
+            }
         }
 
+        System.out.println(joinElements(numbersList, " "));
     }
 
-    private static boolean palindromeNumberChecker (int num){
-        int org = num;
-        int rev = 0;
+    private static String joinElements (List<Double> list, String delimiter){
+        String result = "";
 
-        while (num != 0){
-            rev = rev * 10 + num % 10;
-            num = num / 10;
+        for (Double num : list) {
+
+            DecimalFormat df = new DecimalFormat("0.#");
+
+            String numFormat = df.format(num) + delimiter;
+
+            result += numFormat;
+
         }
 
-        return org == rev;
-
+        return result;
     }
 }
