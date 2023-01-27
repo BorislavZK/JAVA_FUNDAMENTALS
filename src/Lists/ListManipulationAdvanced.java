@@ -80,39 +80,6 @@ public class ListManipulationAdvanced {
                 case "Filter":
                     //Filter {condition} {number} – print all the numbers that
                     // fulfill that condition. The condition will be either '<', '>', ">=", "<="
-                    System.out.println();
-                    item = Integer.parseInt(commandLine.get(2));
-                    condition = commandLine.get(1);
-
-                    if(condition.equals("<")){
-                        for (Integer number : numList) {
-                            if (number < item){
-                                System.out.print(number + " ");
-                            }
-                        }
-                    }else if (condition.equals(">")){
-                        for (Integer number : numList) {
-                            if (number > item){
-                                System.out.print(number + " ");
-                            }
-                        }
-
-                    }else if (condition.equals(">=")){
-                        for (Integer number : numList) {
-                            if (number >= item){
-                                System.out.print(number + " ");
-                            }
-                        }
-
-                    }else if (condition.equals("<=")){
-                        for (Integer number : numList) {
-                            if (number <= item){
-                                System.out.print(number + " ");
-                            }
-                        }
-
-                    }
-
                     break;
 
             }
