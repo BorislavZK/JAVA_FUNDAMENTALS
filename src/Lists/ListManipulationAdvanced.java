@@ -21,8 +21,7 @@ public class ListManipulationAdvanced {
 
         while (!input.equals("end")) {
 
-            List<String> commandLine = Arrays.stream(input.split(" "))
-                    .collect(Collectors.toList());
+            List<String> commandLine = Arrays.stream(input.split(" ")).collect(Collectors.toList());
 
             String command = commandLine.get(0);
 
@@ -50,7 +49,7 @@ public class ListManipulationAdvanced {
                     System.out.println();
 
                     for (Integer numberEvens : numList) {
-                        if(condition.equals("odd")){
+                        if (condition.equals("odd")) {
                             break;
                         }
                         if (condition.equals("even") && numberEvens % 2 == 0 && numberEvens != 0) {
@@ -59,10 +58,10 @@ public class ListManipulationAdvanced {
 
                     }
                     for (Integer numberOdds : numList) {
-                        if(condition.equals("even")){
+                        if (condition.equals("even")) {
                             break;
                         }
-                        if (condition.equals("odd") && numberOdds % 2 != 0){
+                        if (condition.equals("odd") && numberOdds % 2 != 0) {
                             System.out.print(numberOdds + " ");
                         }
                     }
@@ -80,7 +79,41 @@ public class ListManipulationAdvanced {
                 case "Filter":
                     //Filter {condition} {number} – print all the numbers that
                     // fulfill that condition. The condition will be either '<', '>', ">=", "<="
+                    System.out.println();
+                    item = Integer.parseInt(commandLine.get(2));
+                    condition = commandLine.get(1);
+
+                    if (condition.equals("<")) {
+                        for (Integer number : numList) {
+                            if (number < item) {
+                                System.out.print(number + " ");
+                            }
+                        }
+                    } else if (condition.equals(">")) {
+                        for (Integer number : numList) {
+                            if (number > item) {
+                                System.out.print(number + " ");
+                            }
+                        }
+
+                    } else if (condition.equals(">=")) {
+                        for (Integer number : numList) {
+                            if (number >= item) {
+                                System.out.print(number + " ");
+                            }
+                        }
+
+                    } else if (condition.equals("<=")) {
+                        for (Integer number : numList) {
+                            if (number <= item) {
+                                System.out.print(number + " ");
+                            }
+                        }
+
+                    }
+
                     break;
+
 
             }
 
