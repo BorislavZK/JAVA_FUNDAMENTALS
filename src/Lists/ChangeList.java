@@ -13,30 +13,31 @@ public class ChangeList {
         String line = scan.nextLine();
 
         while (!line.equals("end")) {
-
             String[] data = line.split("\\s+");
+
             String command = data[0];
             int element = Integer.parseInt(data[1]);
 
-            if (data[0].equals("Delete")) {
+            if (command.equals("Delete")) {
                 // ELEMENT TO SINGLE LIST
 
                 //numbers.removeAll(Collections.singletonList(element));
-
-                //numbers.removeAll(Arrays.asList(element));
+                numbers.removeAll(Arrays.asList(element));
 
                 //FOR-LOOP
-                for (int i = 0; i < numbers.size(); i++) {
-                    if (numbers.get(i) == element) {
-                        numbers.remove(i);
-                        i--;
-                    }
+//                for (int i = 0; i < numbers.size(); i++) {
+//                    if (numbers.get(i) == element) {
+//                        numbers.remove(i);
+//                        i--;
+//                    }
+//
+//                }
 
-                }
-            } else if (data[0].equals("Insert")) {
+
+            } else if (command.equals("Insert")) {
                 int index = Integer.parseInt(data[2]);
                 numbers.add(index, element);
-                break;
+
             }
 
             line = scan.nextLine();
