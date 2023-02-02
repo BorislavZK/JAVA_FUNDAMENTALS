@@ -16,7 +16,6 @@ public class ListManipulationAdvanced {
             numList.add(Integer.valueOf(s));
         }
 
-
         String input = scan.nextLine();
 
         while (!input.equals("end")) {
@@ -35,9 +34,11 @@ public class ListManipulationAdvanced {
                     // If yes, print "Yes", otherwise, print "No such number"
                     item = Integer.parseInt(commandLine.get(1));
                     if (numList.contains(item)) {
-                        System.out.println("Yes");
+                        System.out.print("Yes");
+                        System.out.println();
                     } else {
-                        System.out.println("No");
+                        System.out.print("No such number");
+                        System.out.println();
                     }
                     break;
 
@@ -46,33 +47,31 @@ public class ListManipulationAdvanced {
                     //Print odd – print all the numbers that are oddly separated by a space
                     condition = commandLine.get(1);
 
-                    System.out.println();
-
-                    for (Integer numberEvens : numList) {
-                        if (condition.equals("odd")) {
-                            break;
+                    if (condition.equals("even")) {
+                        for (Integer numberEvens : numList) {
+                            if (numberEvens % 2 == 0 && numberEvens != 0) {
+                                System.out.printf("%d ", numberEvens);
+                            }
                         }
-                        if (condition.equals("even") && numberEvens % 2 == 0 && numberEvens != 0) {
-                            System.out.print(numberEvens + " ");
-                        }
-
+                        System.out.println();
                     }
-                    for (Integer numberOdds : numList) {
-                        if (condition.equals("even")) {
-                            break;
+
+
+                    if (condition.equals("odd")) {
+                        for (Integer numberOdds : numList) {
+                            if (numberOdds % 2 != 0) {
+                                System.out.printf("%d ", numberOdds);
+                            }
                         }
-                        if (condition.equals("odd") && numberOdds % 2 != 0) {
-                            System.out.print(numberOdds + " ");
-                        }
+                        System.out.println();
                     }
+
                     break;
 
                 case "Get":
                     //Get sum – print the sum of all the numbers
-                    System.out.println();
                     int sumElements = numList.stream().mapToInt(Integer::intValue).sum();
-
-                    System.out.println(sumElements);
+                    System.out.print(sumElements);
 
                     break;
 
@@ -89,20 +88,22 @@ public class ListManipulationAdvanced {
                                 System.out.print(number + " ");
                             }
                         }
+                        System.out.println();
                     } else if (condition.equals(">")) {
                         for (Integer number : numList) {
                             if (number > item) {
                                 System.out.print(number + " ");
                             }
-                        }
 
+                        }
+                        System.out.println();
                     } else if (condition.equals(">=")) {
                         for (Integer number : numList) {
                             if (number >= item) {
                                 System.out.print(number + " ");
                             }
                         }
-
+                        //System.out.println();
                     } else if (condition.equals("<=")) {
                         for (Integer number : numList) {
                             if (number <= item) {
@@ -113,7 +114,6 @@ public class ListManipulationAdvanced {
                     }
 
                     break;
-
 
             }
 
