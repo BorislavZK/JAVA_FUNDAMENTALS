@@ -20,22 +20,35 @@ public class ListOperations {
             String[] data = line.split("\\s+");
             String command = data[0];
             Integer element = null;
-            Integer index = null;
+            int index = 0;
 
             switch (command) {
                 case "Add":
                     element = Integer.parseInt(data[1]);
-                    numbers.add(element);
+                    numbers.add(Integer.parseInt(data[1]));
                     break;
 
                 case "Insert":
                     element = Integer.parseInt(data[1]);
                     index = Integer.parseInt(data[2]);
+
+                    if (index < 0 || index >= numbers.size()) {
+                        System.out.println("Invalid index");
+                    } else {
+                        numbers.add(index, element);
+                    }
                     break;
 
                 case "Remove":
+
                     index = Integer.parseInt(data[1]);
-                    numbers.remove(index);
+
+                    if (index < 0 || index >= numbers.size()) {
+                        System.out.println("Invalid index");
+                    } else {
+                        numbers.remove(index);
+                    }
+
                     break;
 
                 case "Shift":
@@ -51,17 +64,20 @@ public class ListOperations {
                     } else {
 
                         for (int i = 1; i <= count; i++) {
-                            int temp
+                            numbers.add(0, numbers.get(numbers.size() - 1));
+                            numbers.remove(numbers.size() - 1);
 
                         }
                     }
-
-
                     break;
             }
 
-
             line = scan.nextLine();
+        }
+
+        for (Integer number : numbers) {
+            System.out.print(number + " ");
+
         }
     }
 }
