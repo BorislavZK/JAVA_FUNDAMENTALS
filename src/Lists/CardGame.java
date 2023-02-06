@@ -21,6 +21,9 @@ public class CardGame {
             int firstPlayerCard = playerOne.get(0);
             int secondPlayerCard = playerTwo.get(0);
 
+            if()
+
+            /*
             if (firstPlayerCard == secondPlayerCard){
                 playerOne.remove(0);
                 playerTwo.remove(0);
@@ -37,6 +40,7 @@ public class CardGame {
                 playerOne.remove(0);
 
             }
+             */
         }
 
         if(playerTwo.isEmpty()){
