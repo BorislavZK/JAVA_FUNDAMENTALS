@@ -7,26 +7,16 @@ import java.util.stream.Collectors;
 
 public class CardGame {
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
-
         List<Integer> playerOne = Arrays.stream(scan.nextLine().split("\\s+"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
-
         List<Integer> playerTwo = Arrays.stream(scan.nextLine().split("\\s+"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
-
         int firstSum = 0;
         int secondSum = 0;
-
-        while (true){
-
-            if (!playerOne.isEmpty() || !playerTwo.isEmpty()){
-                break;
-            }
-
+        while (playerOne.size() > 0 && playerTwo.size() > 0){
 
             int firstPlayerCard = playerOne.get(0);
             int secondPlayerCard = playerTwo.get(0);
