@@ -9,6 +9,7 @@ public class MovingTarget {
         Scanner scan = new Scanner(System.in);
 
         String[] line = scan.nextLine().split("\\s+");
+
         List<Integer> numbers = new ArrayList<>();
 
         for (int i = 0; i < line.length; i++) {
@@ -25,16 +26,36 @@ public class MovingTarget {
             switch (commands[0]) {
 
                 case "Add":
-                    if (index >= 0 && index < numbers.size()){    // MOJE BI -1
+                    if (isIndexValid(index, numbers)) {
                         int addElement = numbers.get(index) + powRadVal;
                         numbers.set(index, addElement);
+                    } else {
+                        System.out.println("Invalid placement!");
                     }
-                        break;
+//                    if (index >= 0 && index < numbers.size()) {    //!!!
+//                        int addElement = numbers.get(index) + powRadVal;
+//                        numbers.set(index, addElement);
+//                    }
+                    break;
 
                 case "Shoot":
+
+                    if (isIndexValid(index, numbers)) {
+                        int shootElement = numbers.get(index) - powRadVal;
+                        if (shootElement <= 0) {
+                            numbers.remove(index);
+                        } else {
+                            numbers.set(index, shootElement);
+                        }
+                    }
                     break;
 
                 case "Strike":
+
+                    if (isStrikeIndexValid(index, powRadVal, numbers)) {
+
+                    }
+
                     break;
 
             }
@@ -46,5 +67,24 @@ public class MovingTarget {
         System.out.println("bobi");
     }
 
-    //private static boolean ifIndexValid ()
+    private static boolean isIndexValid(int index, List<Integer> numbers) {
+        return index >= 0 && index < numbers.size();
+
+    }
+
+    private static boolean isStrikeIndexValid(int index, int power, List<Integer> numbers) {
+        return index - power >= 0 && index + power <= numbers.size() - 1;
+
+    }
 }
+
+
+//        5 5 5 5
+//        Add 0 5
+//        Add 1 5
+//        Add 4 5
+//        Shoot 0 2
+//        Shoot 1 2
+//        Shoot 4 5
+//        End
+//
