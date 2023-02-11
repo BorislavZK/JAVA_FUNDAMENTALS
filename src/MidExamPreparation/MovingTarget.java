@@ -17,24 +17,34 @@ public class MovingTarget {
 
 
         String[] commands = scan.nextLine().split("\\s+");
-        while (!commands[0].equals("End")){
 
-           switch (commands[0]){
+        while (!commands[0].equals("End")) {
+            int index = Integer.parseInt(commands[1]);
+            int powRadVal = Integer.parseInt(commands[2]);
 
-               case"Add":
-                   break;
+            switch (commands[0]) {
 
-               case"Shoot":
-                   break;
+                case "Add":
+                    if (index >= 0 && index < numbers.size()){    // MOJE BI -1
+                        int addElement = numbers.get(index) + powRadVal;
+                        numbers.set(index, addElement);
+                    }
+                        break;
 
-               case"Strike":
-                   break;
+                case "Shoot":
+                    break;
 
-           }
+                case "Strike":
+                    break;
 
+            }
 
             commands = scan.nextLine().split("\\s+");
 
         }
+
+        System.out.println("bobi");
     }
+
+    //private static boolean ifIndexValid ()
 }
