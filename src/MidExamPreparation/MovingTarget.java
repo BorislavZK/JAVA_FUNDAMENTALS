@@ -54,22 +54,34 @@ public class MovingTarget {
 
                     if (isStrikeIndexValid(index, powRadVal, numbers)) {
 
+                        for (int i = index - powRadVal; i <= index + powRadVal; i++) {
+                            numbers.remove(index - powRadVal);
+
+                        }
+
+                    } else {
+                        System.out.println("Strike missed!");
                     }
-
                     break;
-
             }
 
             commands = scan.nextLine().split("\\s+");
 
         }
 
-        System.out.println("bobi");
+        for (int i = 0; i < numbers.size() ; i++) {
+            if(i < numbers.size()-1){
+                System.out.print(numbers.get(i) + "|");
+            }else{
+                System.out.print(numbers.get(i));
+            }
+
+
+        }
     }
 
     private static boolean isIndexValid(int index, List<Integer> numbers) {
         return index >= 0 && index < numbers.size();
-
     }
 
     private static boolean isStrikeIndexValid(int index, int power, List<Integer> numbers) {
