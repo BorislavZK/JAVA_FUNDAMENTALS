@@ -32,7 +32,7 @@ public class MuOnline {
                         health = 100;
                     }
                     System.out.printf("You healed for %d hp.%n", number); //ZA POSLE
-                    System.out.printf("Current health: %s hp%n", health);
+                    System.out.printf("Current health: %s hp.%n", health);
                     break;
 
                 case "chest":

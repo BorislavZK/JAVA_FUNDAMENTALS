@@ -43,7 +43,7 @@ public class ShootForTheWin {
             coordinates = scan.nextLine();
         }
 
-        System.out.printf("Shot targets %d -> ",totalShots );
+        System.out.printf("Shot targets: %d -> ",totalShots );
 
         for (int n : numbers) {
             System.out.print(n + " ");
