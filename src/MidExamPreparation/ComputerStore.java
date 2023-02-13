@@ -21,9 +21,9 @@ public class ComputerStore {
                 System.out.println("Invalid price!");
                 inputPrice = scan.nextLine();
                 continue;
-            } else {
-                totalPrice += price;
             }
+
+            totalPrice += price;
 
             inputPrice = scan.nextLine();
 
@@ -32,10 +32,10 @@ public class ComputerStore {
             }
         }
 
-        totalPriceWithVAT = totalPrice * 1.2;
-        vat = totalPriceWithVAT - totalPrice;
+        vat = totalPrice * 0.2;
+        totalPriceWithVAT = totalPrice + vat;
 
-        if (totalPrice <= 0) {
+        if (totalPriceWithVAT == 0) {
             System.out.println("Invalid order!");
         } else {
             if (ifSpecial) {
@@ -49,9 +49,7 @@ public class ComputerStore {
             System.out.printf("Total price: %.2f$", totalPriceWithVAT);
 
 
-
         }
-
 
     }
 }
