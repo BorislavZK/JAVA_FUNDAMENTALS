@@ -21,14 +21,13 @@ public class TheLift {
 
             if (liftLine[i] < 4) { // proverqvame dali ima svobodni mesta
                 currentFreeSpace = 4 - liftLine[i]; // ako ima vzimame broq svobodni mesta
+                liftLine[i] = liftLine[i] + currentFreeSpace; //kachvame horata na lifta
                 peopleWaiting -= currentFreeSpace; // chakashtite hora - svobodnite mesta
 
                 if (peopleWaiting < 0) {
                     difference = Math.abs(peopleWaiting);
                     peopleWaiting = 0;
                     liftLine[i] = 4 - difference;
-                } else {
-                    liftLine[i] += 4 - difference;
                 }
 
             }
@@ -43,8 +42,8 @@ public class TheLift {
         if (isFreeSpace) {
             System.out.println("The lift has empty spots!");
         } else {
-            System.out.println("There isn't enough space!");
-            System.out.printf("%d people in a queue!%n", peopleWaiting);
+            System.out.print("There isn't enough space!");
+            System.out.printf(" %d people in a queue!%n", peopleWaiting);
         }
 
         for (int i : liftLine) {
