@@ -19,15 +19,15 @@ public class TheLift {
             int currentFreeSpace = 0;
             int difference = 0;
 
-            if (liftLine[i] < 4) { // proverqvame dali ima svobodni mesta
-                currentFreeSpace = 4 - liftLine[i]; // ako ima vzimame broq svobodni mesta
-                liftLine[i] = liftLine[i] + currentFreeSpace; //kachvame horata na lifta
-                peopleWaiting -= currentFreeSpace; // chakashtite hora - svobodnite mesta
+            if (liftLine[i] < 4) { // проверка дали има свободни места
+                currentFreeSpace = 4 - liftLine[i]; // ако има взимаме броя свободни места
+                liftLine[i] += currentFreeSpace; //качваме хората в лифта
+                peopleWaiting -= currentFreeSpace; // чакащите хора минус свободните места
 
-                if (peopleWaiting < 0) {
-                    difference = Math.abs(peopleWaiting);
-                    peopleWaiting = 0;
-                    liftLine[i] = 4 - difference;
+                if (peopleWaiting < 0) { // ако чакащите хора станат отрицателно число
+                    difference = Math.abs(peopleWaiting); // разликата от нулата
+                    peopleWaiting = 0; // нулираме чакащите
+                    liftLine[i] -= difference; // вадим разликата от вече качените хора
                 }
 
             }
