@@ -1,7 +1,9 @@
 package Arrays;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class StringArrToIntArr {
     public static void main(String[] args) {
@@ -107,7 +109,6 @@ public class StringArrToIntArr {
         A typical implementation for this approach would look like below.
 
 
-
         String[] strings = {"1", "2", "3", "4", "5"};
 
         int[] values = new int[strings.length];
@@ -120,6 +121,12 @@ public class StringArrToIntArr {
 
 
          */
+
+
+         // LIST
+
+//        String input = scan.nextLine();
+//        List<String> stringList = Arrays.stream(input.split("\\s+")).collect(Collectors.toList());
 
 
     }
