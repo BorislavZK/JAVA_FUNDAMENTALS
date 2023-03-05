@@ -19,6 +19,8 @@ public class ArraysSortTest01 {
         System.out.println("New order - Descending");
         System.out.println(Arrays.toString(array));
 
+        // studentsList.sort(Comparator.comparingDouble(Students::getGrade).reversed());
+
         
     }
 }
