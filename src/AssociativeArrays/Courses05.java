@@ -31,14 +31,20 @@ public class Courses05 {
         }
 
 
-        for (Map.Entry<String, List<String>> entry : namesAndCourses.entrySet()) {
-            System.out.printf("%s: %s\n", entry.getKey(), entry.getValue().size());
+//        for (Map.Entry<String, List<String>> entry : namesAndCourses.entrySet()) {
+//            System.out.printf("%s: %s\n", entry.getKey(), entry.getValue().size());
+//
+//            for (int i = 0; i < entry.getValue().size() ; i++) {
+//                System.out.printf("-- %s\n", entry.getValue().get(i));
+//
+//            }
+//        }
 
-            for (int i = 0; i < entry.getValue().size() ; i++) {
-                System.out.printf("-- %s\n", entry.getValue().get(i));
 
-            }
-        }
+
+        namesAndCourses.forEach((k, v) ->
+
+                System.out.printf("%s: %s%n-- %s%n", k, v.size(), String.join("\n-- ", v)));
 
 
         //namesAndCourses.forEach((c, n) -> System.out.printf("%s => %s\n", c, n.forEach();));
