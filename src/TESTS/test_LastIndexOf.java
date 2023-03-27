@@ -11,23 +11,20 @@ public class test_LastIndexOf {
         System.out.println(animals.lastIndexOf("mouse"));
 
         System.out.println(animals.replace("dog", "xxx"));
-        
 
+        System.out.println();
         System.out.println("StringBuilder");
-
         StringBuilder sb = new StringBuilder();
-
         sb.append("abc");
         sb.append("def");
+        sb.insert(3, " xxx "); // insert xxx
+        sb.replace(4,7, "BBB"); //replace xxx with BBB
+        
 
-        sb.insert(3, " xxx ");
 
         System.out.println(sb);
-
         String sbToSting = sb.toString();
+        System.out.println(sbToSting + " IS A STRING");
 
-        System.out.println(sbToSting + " is a StringBuilder to String");
-
-        StringBuilder sb2 = new StringBuilder(sbToSting);
     }
 }
