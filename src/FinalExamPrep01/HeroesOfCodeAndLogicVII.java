@@ -35,8 +35,8 @@ public class HeroesOfCodeAndLogicVII {
                 int currentMana = heroesMap.get(heroName).get(1);
 
                 if (currentMana >= manaNeeded) {
-                    System.out.printf("%s has successfully cast %s and now has {mana points left} MP!\n", heroName, spellName);
                     currentMana -= manaNeeded;
+                    System.out.printf("%s has successfully cast %s and now has %d MP!\n", heroName, spellName, currentMana );
                     heroesMap.get(heroName).set(1, currentMana);
                 } else {
                     System.out.printf("%s does not have enough MP to cast %s!\n", heroName, spellName);
@@ -58,11 +58,11 @@ public class HeroesOfCodeAndLogicVII {
                         System.out.printf("%s has been killed by %s!\n", heroName, attacker);
                         heroesMap.remove(heroName);
                     } else {
-                        System.out.printf("%s was hit for %d HP by %s and now has %d HP left!\n", heroName, damage, attacker, currentHitPoint );
+                        System.out.printf("%s was hit for %d HP by %s and now has %d HP left!\n", heroName, damage, attacker, currentHitPoint);
                         heroesMap.get(heroName).set(0, currentHitPoint);
                     }
                 }
-            } else if (commands.contains("Recharge")){
+            } else if (commands.contains("Recharge")) { //OK
                 //Recharge – {hero name} – {amount}"
 
                 String heroName = commands.split(" - ")[1];
@@ -70,37 +70,37 @@ public class HeroesOfCodeAndLogicVII {
 
                 int currentMana = heroesMap.get(heroName).get(1);
                 int manaToRefill = 0;
-                if ( currentMana < 200 ){
+                if (currentMana < 200) {
                     int emptySpace = 200 - currentMana;
-                    if ( amount > emptySpace){
+                    if (amount > emptySpace) {
                         manaToRefill = emptySpace;
-                    }else {
+                    } else {
                         manaToRefill = amount;
                     }
 
-                    amount += manaToRefill;
-                    heroesMap.get(heroName).set(1, amount);
+                    currentMana += manaToRefill;
+                    heroesMap.get(heroName).set(1, currentMana);
                 }
 
-                System.out.printf("%s recharged for %d MP!\n", heroName, manaToRefill );
+                System.out.printf("%s recharged for %d MP!\n", heroName, manaToRefill);
 
-            } else if (commands.contains("Heal")){
+            } else if (commands.contains("Heal")) { // OK
                 //Heal – {hero name} – {amount}"
                 String heroName = commands.split(" - ")[1];
                 int amount = Integer.parseInt(commands.split(" - ")[2]);
-
                 int currentHeal = heroesMap.get(heroName).get(0);
                 int healToRefill = 0;
-                if ( currentHeal < 100 ){
+
+                if (currentHeal < 100) {
                     int emptySpace = 100 - currentHeal;
-                    if ( amount > emptySpace){
+                    if (amount > emptySpace) {
                         healToRefill = emptySpace;
-                    }else {
+                    } else {
                         healToRefill = amount;
                     }
 
-                    amount += healToRefill;
-                    heroesMap.get(heroName).set(1, amount);
+                    currentHeal += healToRefill;
+                    heroesMap.get(heroName).set(0, currentHeal);
                 }
 
                 System.out.printf("%s healed for %d HP!\n", heroName, healToRefill);
