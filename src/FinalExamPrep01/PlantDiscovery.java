@@ -12,12 +12,12 @@ public class PlantDiscovery {
 
         //"{plant}<->{rarity}".
 
-        Map<String, List<Integer>> plantsMap = new LinkedHashMap<>();
+        Map<String, List<Double>> plantsMap = new LinkedHashMap<>();
 
         for (int i = 0; i < n; i++) {
             String input = scan.nextLine();
             String plant = input.split("<->")[0]; // key
-            int rarity = Integer.parseInt(input.split("<->")[1]); // value 0 position
+            double rarity = Double.parseDouble(input.split("<->")[1]); // value 0 position
 
 
             plantsMap.putIfAbsent(plant, new ArrayList<>());
@@ -28,7 +28,7 @@ public class PlantDiscovery {
             }
 
         }
-            // SECOND PART //
+        // SECOND PART //
 
         String command = scan.nextLine();
 
@@ -41,14 +41,14 @@ public class PlantDiscovery {
 
                 if (command.contains("Rate")) {
                     //Rate: {plant} - {rating}" – add the given rating to the plant (store all ratings)
-                    int rating = Integer.parseInt(command.split(" - ")[1]);
+                    double rating = Double.parseDouble(command.split(" - ")[1]);
                     plantsMap.get(plant).add(rating);
 
 
                 } else if (command.contains("Update")) {
                     //"Update: {plant} - {new_rarity}" – update the rarity of the plant with the new one
 
-                    int rarity = Integer.parseInt(command.split(" - ")[1]);
+                    double rarity = Double.parseDouble(command.split(" - ")[1]);
 
                     plantsMap.get(plant).set(0, rarity);
 
@@ -56,7 +56,7 @@ public class PlantDiscovery {
                 } else if (command.contains("Reset")) {
                     // //"Reset: {plant}" – remove all the ratings of the given plant
 
-                    List<Integer> sublist = plantsMap.get(plant).subList(1, plantsMap.get(plant).size());
+                    List<Double> sublist = plantsMap.get(plant).subList(1, plantsMap.get(plant).size());
                     plantsMap.get(plant).remove(sublist);
 
                 }
@@ -66,20 +66,31 @@ public class PlantDiscovery {
             }
 
 
+            //List<Double> avgList = new ArrayList<>();
 
-            List<Double> avgList = new ArrayList<>();
-
-            for (Map.Entry<String, List<Integer>> entry : plantsMap.entrySet()) {
+            for (Map.Entry<String, List<Double>> entry : plantsMap.entrySet()) {
 
                 int counter = 0;
                 int forIndex = entry.getValue().size();
                 double avg = 0;
+
                 for (int i = 1; i < forIndex; i++) {
-                    counter ++;
+                    counter++;
                     avg += entry.getValue().get(i);
                 }
+
+
+
                 avg /= counter;
-                avgList.add(avg);
+
+                if(forIndex == 1){
+                    avg = entry.getValue().get(1);
+                }
+
+                entry.getValue().add(avg);
+
+
+
             }
 
 
@@ -90,6 +101,16 @@ public class PlantDiscovery {
         System.out.println("Plants for the exhibition:");
 
 
+        for (Map.Entry<String, List<Double>> entry : plantsMap.entrySet()) {
+            //- Arnoldii; Rarity: 4; Rating: 0.00
+
+            if(Double.isNaN(entry.getValue().get(entry.getValue().size() - 1))){
+                double zero = 0.0;
+                entry.getValue().set(entry.getValue().size()-1, zero);
+
+            }
+            System.out.printf("- %s; Rarity: %.0f; Rating: %.2f\n", entry.getKey(), entry.getValue().get(0), entry.getValue().get(entry.getValue().size() - 1));
+        }
 
 
     }
